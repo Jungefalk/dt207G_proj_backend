@@ -141,7 +141,7 @@ app.post("/comment", async (req, res) => {
 });
 
 
-//put
+//put - med id
 
 app.put("/gelato/:id", async (req, res) => {
 
@@ -153,10 +153,26 @@ app.put("/topping/:id", async (req, res) => {
 
 app.put("/drink/:id", async (req, res) => {
 
-    
+
 });
 
-//delete
+//delete - med id
+
+app.delete("/gelato/:id", async (req, res) => {
+
+});
+
+app.delete("/topping/:id", async (req, res) => {
+
+});
+
+app.delete("/drink/:id", async (req, res) => {
+
+});
+
+app.delete("/comment/:id", async (req, res) => {
+
+});
 
 //Starta express-server
 app.listen(port, () => {
