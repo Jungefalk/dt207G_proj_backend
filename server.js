@@ -87,3 +87,9 @@ const commentSchema = new mongoose.Schema({
         required: [false]
     }
 });
+
+//Models
+const Gelato = mongoose.model("Gelato", gelatoSchema);
+const Topping = mongoose.model("Topping", toppingSchema);
+const Drink = mongoose.model("Drink", drinkSchema);
+const Comment = mongoose.model("Comment", commentSchema);
