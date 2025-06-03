@@ -143,6 +143,19 @@ app.post("/comment", async (req, res) => {
 
 //put
 
+app.put("/gelato/:id", async (req, res) => {
+
+});
+
+app.put("/topping/:id", async (req, res) => {
+
+});
+
+app.put("/drink/:id", async (req, res) => {
+
+    
+});
+
 //delete
 
 //Starta express-server
