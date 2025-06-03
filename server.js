@@ -96,13 +96,40 @@ const Drink = mongoose.model("Drink", drinkSchema);
 const Comment = mongoose.model("Comment", commentSchema);
 
 //Anslut till MongoDb-databas via atlas med miljövariabel
-mongoose.connect(process.env.MONGODB_URL).then(()=>{
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("Ansluten till databas")
-}).catch((error)=>{
+}).catch((error) => {
     console.error("Det gick inte att ansluta till databasen" + error)
 });
 
+/**
+ * Routes för CRUD-operationer
+ */
+
+//get
+app.get("/gelato", async (req, res) => {
+
+});
+
+app.get("/topping", async (req, res) => {
+
+});
+
+app.get("/drink", async (req, res) => {
+
+});
+
+app.get("/comment", async (req, res) => {
+
+});
+
+//post
+
+//put
+
+//delete
+
 //Starta express-server
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log("Servern körs på port " + port)
 })
