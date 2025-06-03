@@ -25,7 +25,7 @@ app.use(express.json());
 
 //Gelato schema
 
-const gelatoSchema = new mongoose.gelatoSchema({
+const gelatoSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, "Skicka med namn på produkt"],
@@ -40,7 +40,7 @@ const gelatoSchema = new mongoose.gelatoSchema({
         required: [false]
     },
     price: {
-        type: String,
+        type: Number,
         required: [true, "Skicka med pris på produkt"]
     }
 });
@@ -53,7 +53,7 @@ const toppingSchema = new mongoose.Schema({
         required: [true, "Skicka med namn på produkt"]
     },
     price: {
-        type: String,
+        type: Number,
         required: [true, "Skicka med pris på produkt"]
     }
 });
@@ -61,12 +61,12 @@ const toppingSchema = new mongoose.Schema({
 // Schema för dryck
 
 const drinkSchema = new mongoose.Schema({
-     name: {
+    name: {
         type: String,
         required: [true, "Skicka med namn på produkt"]
     },
     price: {
-        type: String,
+        type: Number,
         required: [true, "Skicka med pris på produkt"]
     }
 });
@@ -74,15 +74,15 @@ const drinkSchema = new mongoose.Schema({
 // Schema för kommentar
 
 const commentSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: [true, "Skicka med namn"]
     },
-    rating:{
-    type: String,
-    required: [true, "Skicka med ett betyg"]
+    rating: {
+        type: String,
+        required: [true, "Skicka med ett betyg"]
     },
-    comment:{
+    comment: {
         type: String,
         required: [false]
     }
