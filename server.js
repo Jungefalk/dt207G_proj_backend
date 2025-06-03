@@ -124,6 +124,22 @@ app.get("/comment", async (req, res) => {
 });
 
 //post
+app.post("/gelato", async (req, res) => {
+
+});
+
+app.post("/topping", async (req, res) => {
+
+});
+
+app.post("/drink", async (req, res) => {
+
+});
+
+app.post("/comment", async (req, res) => {
+
+});
+
 
 //put
 
