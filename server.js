@@ -94,3 +94,10 @@ const Gelato = mongoose.model("Gelato", gelatoSchema);
 const Topping = mongoose.model("Topping", toppingSchema);
 const Drink = mongoose.model("Drink", drinkSchema);
 const Comment = mongoose.model("Comment", commentSchema);
+
+//Anslut till MongoDb-databas via atlas med miljövariabel
+mongoose.connect(process.env.MONGODB_URL).then(()=>{
+    console.log("Ansluten till databas")
+}).catch((error)=>{
+    console.error("Det gick inte att ansluta till databasen" + error)
+});
