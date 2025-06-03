@@ -101,3 +101,8 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
 }).catch((error)=>{
     console.error("Det gick inte att ansluta till databasen" + error)
 });
+
+//Starta express-server
+app.listen(port, ()=>{
+    console.log("Servern körs på port " + port)
+})
