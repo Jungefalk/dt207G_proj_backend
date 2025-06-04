@@ -112,7 +112,7 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
 
 
 /**
- * GET
+ * GET - ROUTES
  */
 
 //get gelato
@@ -165,20 +165,59 @@ app.get("/comment", async (req, res) => {
 });
 
 
-//post
+/**
+ * POST - ROUTES
+ */
+
+//post gelato
 app.post("/gelato", async (req, res) => {
 
+    try{
+        let result = await Gelato.create(req.body);
+        return res.json(result);
+
+    }catch (error){
+        return res.status(400).json(error);
+    };
+
 });
 
+//post topping
 app.post("/topping", async (req, res) => {
 
+    try{
+        let result = await Topping.create(req.body);
+        return res.json(result);
+
+    }catch (error){
+        return res.status(400).json(error);
+    };
+
 });
 
+//post drink
 app.post("/drink", async (req, res) => {
 
+    try{
+        let result = await Drink.create(req.body);
+        return res.json(result);
+
+    }catch (error){
+        return res.status(400).json(error);
+    };
+
 });
 
+//post comment
 app.post("/comment", async (req, res) => {
+
+    try{
+        let result = await Comment.create(req.body);
+        return res.json(result);
+
+    }catch (error){
+        return res.status(400).json(error);
+    };
 
 });
 
