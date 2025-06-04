@@ -87,7 +87,7 @@ const commentSchema = new mongoose.Schema({
         type: String,
         required: [false]
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now
     }
@@ -110,22 +110,60 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
  * Routes för CRUD-operationer
  */
 
-//get
+
+/**
+ * GET
+ */
+
+//get gelato
 app.get("/gelato", async (req, res) => {
 
+    try {
+        let result = await Gelato.find({});
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 });
 
+//get topping
 app.get("/topping", async (req, res) => {
 
+    try {
+        let result = await Topping.find({});
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 });
 
+//get drink
 app.get("/drink", async (req, res) => {
 
+    try {
+        let result = await Drink.find({});
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+
 });
 
+//get comment
 app.get("/comment", async (req, res) => {
 
+    try {
+        let result = await Comment.find({});
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 });
+
 
 //post
 app.post("/gelato", async (req, res) => {
@@ -181,4 +219,4 @@ app.delete("/comment/:id", async (req, res) => {
 //Starta express-server
 app.listen(port, () => {
     console.log("Servern körs på port " + port)
-})
+});
