@@ -172,11 +172,11 @@ app.get("/comment", async (req, res) => {
 //post gelato
 app.post("/gelato", async (req, res) => {
 
-    try{
+    try {
         let result = await Gelato.create(req.body);
         return res.json(result);
 
-    }catch (error){
+    } catch (error) {
         return res.status(400).json(error);
     };
 
@@ -185,11 +185,11 @@ app.post("/gelato", async (req, res) => {
 //post topping
 app.post("/topping", async (req, res) => {
 
-    try{
+    try {
         let result = await Topping.create(req.body);
         return res.json(result);
 
-    }catch (error){
+    } catch (error) {
         return res.status(400).json(error);
     };
 
@@ -198,11 +198,11 @@ app.post("/topping", async (req, res) => {
 //post drink
 app.post("/drink", async (req, res) => {
 
-    try{
+    try {
         let result = await Drink.create(req.body);
         return res.json(result);
 
-    }catch (error){
+    } catch (error) {
         return res.status(400).json(error);
     };
 
@@ -211,33 +211,63 @@ app.post("/drink", async (req, res) => {
 //post comment
 app.post("/comment", async (req, res) => {
 
-    try{
+    try {
         let result = await Comment.create(req.body);
         return res.json(result);
 
-    }catch (error){
+    } catch (error) {
         return res.status(400).json(error);
     };
 
 });
 
 
-//put - med id
+/**
+ * PUT - ROUTES
+ */
 
+//put gelato
 app.put("/gelato/:id", async (req, res) => {
 
+    try {
+        let result = await Gelato.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+
 });
 
+//put topping
 app.put("/topping/:id", async (req, res) => {
 
+    try {
+        let result = await Topping.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
+
 });
 
+//put drink
 app.put("/drink/:id", async (req, res) => {
 
+    try {
+        let result = await Drink.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(400).json(error);
+    }
 
 });
 
-//delete - med id
+/**
+ * DELETE - ROUTES
+ */
 
 app.delete("/gelato/:id", async (req, res) => {
 
