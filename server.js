@@ -20,13 +20,23 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 
-
 //Anslut till MongoDb-databas via atlas med miljövariabel
 mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("Ansluten till databas")
 }).catch((error) => {
     console.error("Det gick inte att ansluta till databasen" + error)
 });
+
+//Routes
+const gelatoRoutes = require("./routes/gelatoRoutes");
+const toppingRoutes = require("./routes/toppingRoutes");
+const drinkRoutes = require("./routes/drinkRoutes");
+const commentRoutes = require("./routes/commentRoutes");
+
+app.use("/api/gelato", gelatoRoutes);
+app.use ("/api/topping", toppingRoutes);
+app.use("/api/drink", drinkRoutes);
+app.use("/api/comment", commentRoutes);
 
 //Starta express-server
 app.listen(port, () => {
