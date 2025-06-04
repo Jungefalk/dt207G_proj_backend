@@ -271,17 +271,49 @@ app.put("/drink/:id", async (req, res) => {
 
 app.delete("/gelato/:id", async (req, res) => {
 
+    try {
+        let result = await Gelato.findByIdAndDelete(req.params.id);
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+
 });
 
 app.delete("/topping/:id", async (req, res) => {
+
+    try {
+        let result = await Topping.findByIdAndDelete(req.params.id);
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 
 });
 
 app.delete("/drink/:id", async (req, res) => {
 
+    try {
+        let result = await Drink.findByIdAndDelete(req.params.id);
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+
 });
 
 app.delete("/comment/:id", async (req, res) => {
+
+    try {
+        let result = await Comment.findByIdAndDelete(req.params.id);
+        return res.json(result);
+
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 
 });
 
