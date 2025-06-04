@@ -32,11 +32,13 @@ const gelatoRoutes = require("./routes/gelatoRoutes");
 const toppingRoutes = require("./routes/toppingRoutes");
 const drinkRoutes = require("./routes/drinkRoutes");
 const commentRoutes = require("./routes/commentRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 
 app.use("/api/gelato", gelatoRoutes);
-app.use ("/api/topping", toppingRoutes);
+app.use("/api/topping", toppingRoutes);
 app.use("/api/drink", drinkRoutes);
 app.use("/api/comment", commentRoutes);
+app.use("/api/admin", adminRoutes);
 
 //Starta express-server
 app.listen(port, () => {
