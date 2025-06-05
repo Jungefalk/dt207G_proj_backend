@@ -28,11 +28,11 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
 });
 
 //Routes
-const gelatoRoutes = require("./routes/gelatoRoutes");
-const toppingRoutes = require("./routes/toppingRoutes");
-const drinkRoutes = require("./routes/drinkRoutes");
-const commentRoutes = require("./routes/commentRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+const gelatoRoutes = require("./routes/gelato_routes");
+const toppingRoutes = require("./routes/topping_routes");
+const drinkRoutes = require("./routes/drink_routes");
+const commentRoutes = require("./routes/comment_routes");
+const adminRoutes = require("./routes/admin_routes");
 
 app.use("/api/gelato", gelatoRoutes);
 app.use("/api/topping", toppingRoutes);

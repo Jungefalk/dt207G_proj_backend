@@ -1,18 +1,17 @@
 /**
- * Routes för Topping
+ * Routes för Gelato
  */
 
 const express = require("express");
 const router = express.Router();
-const Topping = require("../models/toppingModel");
-const authenticateToken = require("../middleware/authJwt");
+const Gelato = require("../models/gelato_model");
+const authenticateToken = require("../middleware/auth_jwt");
 
 //get
-
 router.get("/", async (req, res) => {
 
     try {
-        let result = await Topping.find({});
+        let result = await Gelato.find({});
         return res.json(result);
 
     } catch (error) {
@@ -20,13 +19,11 @@ router.get("/", async (req, res) => {
     }
 });
 
-
 //post
-
 router.post("/", authenticateToken, async (req, res) => {
 
     try {
-        let result = await Topping.create(req.body);
+        let result = await Gelato.create(req.body);
         return res.json(result);
 
     } catch (error) {
@@ -35,13 +32,11 @@ router.post("/", authenticateToken, async (req, res) => {
 
 });
 
-
 //put
-
 router.put("/:id", authenticateToken, async (req, res) => {
 
     try {
-        let result = await Topping.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        let result = await Gelato.findByIdAndUpdate(req.params.id, req.body, { new: true });
         return res.json(result);
 
     } catch (error) {
@@ -51,11 +46,10 @@ router.put("/:id", authenticateToken, async (req, res) => {
 });
 
 //delete
-
 router.delete("/:id", authenticateToken, async (req, res) => {
 
     try {
-        let result = await Topping.findByIdAndDelete(req.params.id);
+        let result = await Gelato.findByIdAndDelete(req.params.id);
         return res.json(result);
 
     } catch (error) {

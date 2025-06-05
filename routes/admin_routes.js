@@ -4,7 +4,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Admin = require("../models/adminModel")
+const Admin = require("../models/admin_model")
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
