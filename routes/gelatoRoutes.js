@@ -4,7 +4,8 @@
 
 const express = require("express");
 const router = express.Router();
-const Gelato = require("../models/gelatoModel")
+const Gelato = require("../models/gelatoModel");
+const authenticateToken = require("../middleware/authJwt");
 
 //get
 router.get("/", async (req, res) => {

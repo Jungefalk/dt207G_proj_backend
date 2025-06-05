@@ -4,7 +4,8 @@
 
 const express = require("express");
 const router = express.Router();
-const Drink = require("../models/drinkModel")
+const Drink = require("../models/drinkModel");
+const authenticateToken = require("../middleware/authJwt");
 
 //get
 

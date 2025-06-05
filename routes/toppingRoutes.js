@@ -4,7 +4,8 @@
 
 const express = require("express");
 const router = express.Router();
-const Topping = require("../models/toppingModel")
+const Topping = require("../models/toppingModel");
+const authenticateToken = require("../middleware/authJwt");
 
 //get
 

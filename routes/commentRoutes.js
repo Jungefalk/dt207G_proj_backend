@@ -4,7 +4,8 @@
 
 const express = require("express");
 const router = express.Router();
-const Comment = require("../models/commentModel")
+const Comment = require("../models/commentModel");
+const authenticateToken = require("../middleware/authJwt");
 
 //get
 router.get("/", async (req, res) => {
