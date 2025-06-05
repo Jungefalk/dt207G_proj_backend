@@ -16,12 +16,17 @@ router.post("/register", async (req, res) => {
             return res.status(400).json({ error: "Skicka med användarnamn och lösenord som är längre än 5 tecken" })
         };
 
+        //Spara användare vid korrekt input
+        const admin = new Admin({ username, password})
+        await admin.save();
+
         res.status(201).json({ message: "Användare tillagd" })
 
     } catch (error) {
         res.status(500).json({ error: "Det blev ett serverfel" });
     }
 });
+
 
 //exportera route
 module.exports = router;
