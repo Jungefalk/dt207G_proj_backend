@@ -80,3 +80,9 @@ adminSchema.statics.loginAdmin = async function (username, password) {
         throw error;
     };
 };
+
+//Model 
+const Admin = mongoose.model("Admin", adminSchema);
+
+//Exportera model
+module.exports = Admin;
