@@ -11,7 +11,7 @@ const authenticateToken = require("../middleware/auth_jwt");
 router.get("/", async (req, res) => {
 
     try {
-        let result = await Comment.find({});
+        let result = await Comment.find({}).sort({ date: -1 }); //sortera i fallande ordning
         return res.json(result);
 
     } catch (error) {
