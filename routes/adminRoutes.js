@@ -4,6 +4,7 @@
 
 const express = require("express");
 const router = express.Router();
+const Admin = require("../models/adminModel")
 
 // Skapa användare
 router.post("/register", async (req, res) => {
