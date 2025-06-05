@@ -33,3 +33,14 @@ adminSchema.pre("save", async function (next) {
         next(error)
     }
 });
+
+//Registrera användare
+adminSchema.statics.registerAdmin = async function(username, password){
+    try {
+        const admin = new this({ username, password });
+        await admin.save();
+        return admin;
+    }catch (error) {
+        throw error;
+    };
+}
