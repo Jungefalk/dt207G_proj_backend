@@ -53,7 +53,15 @@ router.post("/login", async (req, res) => {
         if (!correctPassword) {
             return res.status(401).json({ error: "Felaktigt användarnamn/lösenord" });
         } else {
-            res.status(200).json({ message: "Användare inloggad" });
+
+            //Skapa JWT
+            const payload = { username: username }
+            const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '1h' })
+            const response = {
+                message: "Användare inloggad",
+                token: token
+            }
+            res.status(200).json({ response });
         }
 
     } catch (error) {
