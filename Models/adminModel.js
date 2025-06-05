@@ -35,12 +35,22 @@ adminSchema.pre("save", async function (next) {
 });
 
 //Registrera användare
-adminSchema.statics.registerAdmin = async function(username, password){
+adminSchema.statics.registerAdmin = async function (username, password) {
     try {
         const admin = new this({ username, password });
         await admin.save();
         return admin;
-    }catch (error) {
+    } catch (error) {
         throw error;
     };
-}
+};
+
+//Kontrollera hashat lösenord
+adminSchema.methods.checkPassword = async function (password) {
+    try {
+        return await bcrypt.compare(password, this.password);
+
+    } catch (error) {
+        throw error;
+    }
+};
