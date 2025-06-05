@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
 
 //delete
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
 
     try {
         let result = await Comment.findByIdAndDelete(req.params.id);

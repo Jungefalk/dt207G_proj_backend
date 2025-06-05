@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 //post
-router.post("/", async (req, res) => {
+router.post("/", authenticateToken, async (req, res) => {
 
     try {
         let result = await Gelato.create(req.body);
@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
 });
 
 //put
-router.put("/:id", async (req, res) => {
+router.put("/:id", authenticateToken, async (req, res) => {
 
     try {
         let result = await Gelato.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -46,7 +46,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //delete
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authenticateToken, async (req, res) => {
 
     try {
         let result = await Gelato.findByIdAndDelete(req.params.id);
