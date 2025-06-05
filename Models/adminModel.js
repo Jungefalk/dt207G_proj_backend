@@ -54,3 +54,29 @@ adminSchema.methods.checkPassword = async function (password) {
         throw error;
     }
 };
+
+//Logga in användare
+adminSchema.statics.loginAdmin = async function (username, password) {
+    try {
+
+        const admin = await this.findOne({ username });
+
+        //kontrollera användarnamn
+        if (!admin) {
+            throw new Error("Felaktigt användarnamn/lösenord");
+        }
+
+        const correctPassword = await admin.checkPassword(password);
+
+        //kontrollera lösenord
+        if (!correctPassword) {
+            throw new Error("Felaktigt användarnamn/lösenord");
+        }
+
+        //Korrekt inmatning
+        return admin;
+
+    } catch (error) {
+        throw error;
+    };
+};
